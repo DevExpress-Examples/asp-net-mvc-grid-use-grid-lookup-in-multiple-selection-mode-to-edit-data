@@ -1,0 +1,12 @@
+@model Ex_2.Models.GridDataItem
+@Html.DevExpress().GridLookup(settings => {
+    settings.Name = "TagIDs";
+    settings.Properties.TextFormatString = "{0}:{1}";
+    settings.Width = Unit.Pixel(400);
+    settings.GridViewProperties.CallbackRouteValues = new { Controller = "Home", Action = "GridLookupPartial", CurrentID = Model.ID };
+    settings.ShowModelErrors = true;
+    settings.KeyFieldName = "ID";
+    settings.Properties.SelectionMode = GridLookupSelectionMode.Multiple;
+    settings.Columns.Add("ID");
+    settings.Columns.Add("Name");
+}).BindList(ViewData["Tags"]).Bind(Model.TagIDs).GetHtml()
