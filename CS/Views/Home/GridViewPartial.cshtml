@@ -1,0 +1,37 @@
+@using Ex_2.Models
+
+@Html.DevExpress().GridView(settings => {
+    settings.Name = "GridView";
+    settings.KeyFieldName = "ID";
+    settings.CallbackRouteValues = new { Controller = "Home", Action = "GridViewPartial" };
+    
+    settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Home", Action = "GridViewUpdatePartial" };
+    settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Home", Action = "GridViewDeletePartial" };
+    settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Home", Action = "GridViewInsertPartial" };
+    settings.CommandColumn.Visible = true;
+    settings.CommandColumn.ShowEditButton = true;
+    settings.CommandColumn.ShowNewButtonInHeader = true;
+    settings.CommandColumn.ShowDeleteButton = true;
+    settings.CustomColumnDisplayText = (s, e) =>
+    {
+        if (e.Column.FieldName == "TagIDs")
+        {
+            var tagIDs = (int[])e.Value;
+            var text = DataProvider.GetTags().Where(t => tagIDs.Contains(t.ID)).
+                Select(t => t.Name).DefaultIfEmpty().Aggregate((a, b) => a + ", " + b);
+            e.DisplayText = text ?? string.Empty;
+        }
+    };
+    settings.Columns.Add(col => {
+        col.FieldName = "ID";
+        col.EditFormSettings.Visible =  DefaultBoolean.False;
+    });
+    settings.Columns.Add(col => {
+        col.FieldName = "TagIDs";
+        col.SetEditItemTemplateContent(container => {
+            Html.RenderAction("GridLookupPartial", new { CurrentID = DataBinder.Eval(container.DataItem, "ID") });
+            
+        });
+    });
+
+}).SetEditErrorText((string)ViewData["EditError"]).Bind(Model).GetHtml()
