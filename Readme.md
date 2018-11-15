@@ -1,3 +1,12 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [HomeController.cs](./CS/Controllers/HomeController.cs) (VB: [HomeController.vb](./VB/Controllers/HomeController.vb))
+* [GridData.cs](./CS/Models/GridData.cs) (VB: [GridData.vb](./VB/Models/GridData.vb))
+* **[GridLookupPartial.cshtml](./CS/Views/Home/GridLookupPartial.cshtml)**
+* [GridViewPartial.cshtml](./CS/Views/Home/GridViewPartial.cshtml)
+* [Index.cshtml](./CS/Views/Home/Index.cshtml)
+<!-- default file list end -->
 # GridView - How to use GridLookup in EditForm in multiple selection mode
 
 
