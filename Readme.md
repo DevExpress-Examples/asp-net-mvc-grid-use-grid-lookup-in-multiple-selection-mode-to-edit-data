@@ -9,7 +9,7 @@
 <!-- default file list end -->
 # GridView - How to use GridLookup in EditForm in multiple selection mode
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/t328613)**
+**[[Run Online]](https://codecentral.devexpress.com/t328613/)**
 <!-- run online end -->
 
 
