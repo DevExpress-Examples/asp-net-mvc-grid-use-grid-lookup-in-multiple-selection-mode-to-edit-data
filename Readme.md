@@ -13,9 +13,6 @@
 * [Index.cshtml](./CS/Views/Home/Index.cshtml)
 <!-- default file list end -->
 # GridView - How to use GridLookup in EditForm in multiple selection mode
-<!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/128550890/)**
-<!-- run online end -->
 
 
 <p>Starting with v15.1, GridLookup can be automatically bound to a model field that returns an array of values (see  <a href="https://www.devexpress.com/Support/Center/p/T196024">DevexpressEditorsBinder - Support binding multiple values selected in MVC editor extensions to a Model's collection-type property</a>)<br>This example illustrates how to use GridLookup in a multiple selection mode (<a href="https://documentation.devexpress.com/#AspNet/DevExpressWebGridLookupProperties_SelectionModetopic">SelectionMode</a> is <a href="https://documentation.devexpress.com/#AspNet/DevExpressWebGridLookupSelectionModeEnumtopic">Multiple</a>) as a GridView editor. The main idea is to use the <a href="https://documentation.devexpress.com/#AspNet/DevExpressWebMvcMVCxGridViewColumn_SetEditItemTemplateContenttopic">MVCxGridViewColumn.SetEditItemTemplateContent</a> method to place GridLookup in EditForm. The same approach will work for a custom EditForm (<a href="https://documentation.devexpress.com/#AspNet/DevExpressWebMvcGridViewSettings_SetEditFormTemplateContenttopic">GridViewSettings.SetEditFormTemplateContent</a>) as well.<br><br>Note that prior to version 16.1.6, the GridLookupExtension.Bind method doesn't automatically select required keys. It's necessary to assign a delegate method to the PreRender property to manually select the values using the <a href="https://documentation.devexpress.com/#AspNet/DevExpressWebDataGridViewSelection_SelectRowByKeytopic">GridViewSelection.SelectRowByKey</a> method. Starting with version 16.1.6, it is sufficient to pass values to bind/select to the GridLookupExtension.Bind method.<br><br></p>
